@@ -14,8 +14,9 @@ pipeline {
 						services = [params.SERVICE]
 					}
 					for (service in services) {
-						echo "Building ${params.SERVICE}..."
-						dir("${params.SERVICE}"){
+						echo "Processing ${service}..."
+						dir(service){
+							echo "Building ${service}"
 							sh 'python3 test.py'
 						}
 					}
