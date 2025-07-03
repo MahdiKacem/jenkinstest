@@ -17,7 +17,6 @@ pipeline {
 						echo "Processing ${service}..."
 						dir(service){
 							echo "Building ${service}"
-							sh 'python3 test.py'
 						}
 					}
 				}
