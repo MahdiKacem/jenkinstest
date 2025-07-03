@@ -23,5 +23,19 @@ pipeline {
 				}
 			}
 		}
+		stage("Fetch logs locally"){
+			steps{
+				script{
+					def logPaths = ['service1':'service1/logs/service1.log', 'service2':'service1/logs/service2.log']
+					def logFile = logPaths[params.SERVICE]
+					echo "fetching logs from ${logFile}"
+					sh """
+						if [ -f "${logFile}" ]; then 
+							tail -n 100 ${logFile}
+						else echo "No logs found"
+					"""
+				}
+			}
+		}
 	}
 }
