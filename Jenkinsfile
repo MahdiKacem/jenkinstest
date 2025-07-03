@@ -32,6 +32,7 @@ pipeline {
 						if [ -f "${logFile}" ]; then 
 							tail -n 100 ${logFile}
 						else echo "No logs found"
+						fi
 					"""
 				}
 			}
