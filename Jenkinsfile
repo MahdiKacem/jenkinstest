@@ -7,8 +7,9 @@ pipeline {
 		stage('build') {
 			steps {
 				echo "Building ${params.SERVICE}..."
-				dir("${params.SERVICE}")
-				sh 'python3 test.py'
+				dir("${params.SERVICE}"){
+					sh 'python3 test.py'
+				}
 			}
 		}
 	}
